@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ashesi University College</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+		
+
+
+		
+		<style>
+			html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#map-canvas { height: 80% }
+		</style>
+		
+		<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmkOsyqpV0uDdAT0BzWkEgdTbfsRQZq8k&libraries=places" type="text/javascript"></script>
+<script type="text/javascript">
+document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // create
+        var contact = navigator.contacts.create();
+        contact.displayName = "Plumber";
+        contact.nickname = "Plumber";                 // specify both to support all devices
+        var name = new ContactName();
+        name.givenName = "Jane";
+        name.familyName = "Doe";
+        contact.name = name;
+
+        // save
+        contact.save(onSaveSuccess,onSaveError);
+
+        // clone
+        var clone = contact.clone();
+        clone.name.givenName = "John";
+        console.log("Original contact name = " + contact.name.givenName);
+        console.log("Cloned contact name = " + clone.name.givenName);
+
+        // remove
+        contact.remove(onRemoveSuccess,onRemoveError);
+    }
+
+    // onSaveSuccess: Get a snapshot of the current contacts
+    //
+    function onSaveSuccess(contact) {
+        alert("Save Success");
+    }
+
+    // onSaveError: Failed to get the contacts
+    //
+    function onSaveError(contactError) {
+        alert("Error = " + contactError.code);
+    }
+
+    // onRemoveSuccess: Get a snapshot of the current contacts
+    //
+    function onRemoveSuccess(contacts) {
+        alert("Removal Success");
+    }
+
+    // onRemoveError: Failed to get the contacts
+    //
+    function onRemoveError(contactError) {
+        alert("Error = " + contactError.code);
+    }
+
+</script>
+
+	</head>
+	<body>
+	
+<div  id="map">
+<div  style="text-shadow: none"  class="jumbotron text-center" >
+				<h1 style= "font-size: 18px">Ashesi University <br/> College</h1>
+				<img src="AshesiLogo_9cm.jpg" class="img-rounded" style="margin-top:-20%; margin-left:-70%"/>
+			</div>
+			<input type=text id="pos"></input>
+		<div id="map-canvas"></div>
+		</div>
+		</body>
+		
+	</html>
+	
