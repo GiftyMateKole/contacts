@@ -22,24 +22,69 @@ body { height: 100%; margin: 0; padding: 0 }
 <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmkOsyqpV0uDdAT0BzWkEgdTbfsRQZq8k&libraries=places" type="text/javascript"></script>
 <script type="text/javascript">
- document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        var myContact = navigator.contacts.create({"displayName": "Test User"});
-        myContact.note = "This contact has a note.";
-        console.log("The contact, " + myContact.displayName + ", note: " + myContact.note);
-    }
-
-
+ $(document).ready(function() {
+ $("#createContact").click(function(){
+ var myContact = navigator.contacts.create(
+ {
+ "displayName":null,
+ "name":{
+ "givenName":"Sundaravel",
+ "formatted":"Sundaravel MSM",
+ "middleName":null,
+ "familyName":"MSM",
+ "honorificPrefix":null,
+ "honorificSuffix":null
+ },
+ "nickname":null,
+ "phoneNumbers":[
+ {"type":"mobile","value":"+919500707757","id":0,"pref":false},
+ {"type":"other","value":"+919500707757","id":1,"pref":false}
+ ],
+ "emails":[
+ {"type":"home","value":"sundaravelit@gmail.com","id":0,"pref":false}
+ ],
+ "addresses":[
+ {
+ "postalCode":"600094",
+ "type":"work",
+ "id":0,
+ "locality":"Indian",
+ "pref":"false",
+ "streetAddress":" ",
+ "region":"Chennai, Tamilnadu",
+ "country":"India"
+ }],
+ "ims":null,
+ "organizations":[
+ {
+ "name":"Lucin Inc",
+ "title":"CEO",
+ "type":null,
+ "pref":"false",
+ "department":"Software Development"
+ }],
+ "birthday":null,
+ "note":"My Notes",
+ "categories":null,
+ "urls":[
+ {
+ "type":"other",
+ "value":"www.phonegap.co.in",
+ "id":0,
+ "pref":false
+ }]
+ }
+ );
+ myContact.save();
+ alert("The contact, " + myContact.name.givenName + ", has been created");
+ });
+ });
 </script>
 
 	</head>
 	<body>
-    <h1>Example</h1>
-    <p>Find Contacts</p>
-  </body>
+ <button id="createContact">Create New Contact (static)</button>
+</body>
 
 		
 	</html>
