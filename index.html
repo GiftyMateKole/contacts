@@ -24,11 +24,12 @@ body { height: 100%; margin: 0; padding: 0 }
 <script type="text/javascript">
  $(document).ready(function() {
  $("#createContact").click(function(){
+ var name= "Test";
  var myContact = navigator.contacts.create(
  {
  "displayName":null,
  "name":{
- "givenName":"Sundaravel",
+ "givenName":name,
  "formatted":"Sundaravel MSM",
  "middleName":null,
  "familyName":"MSM",
